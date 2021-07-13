@@ -32,7 +32,7 @@ services:
       - MONGO_DB_USERNAME=admin
       - MONGO_DB_PASSWORD=password
     volumes:
-      - ./db/:/data/db
+      - mongo-data:/data/db
 
   ##############Mongo-Express Docker-Compose Configuration##############
   mongo-express:  #This will be the name of the container
@@ -45,3 +45,6 @@ services:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=password
       - ME_CONFIG_MONGODB_SERVER=mongodb
+volumes:
+  mongo-data:
+    driver: local
